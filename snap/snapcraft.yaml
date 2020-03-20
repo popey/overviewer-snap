@@ -9,6 +9,9 @@ grade: stable
 confinement: strict
 
 parts:
+  sem-open-preload:
+    source: https://github.com/sergiusens/sem-open-preload.git
+    plugin: make
   overviewer:
     plugin: python
     python-packages:
@@ -28,8 +31,12 @@ parts:
 
 apps:
   overviewer:
+    command-chain:
+      - sem-open-preload-launch
     command: overviewer.py
     plugs:
       - home
       - removable-media
       - mount-observe
+      - network-bind
+      - network
