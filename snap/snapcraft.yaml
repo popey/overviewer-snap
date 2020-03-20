@@ -34,9 +34,9 @@ apps:
 #    command-chain:
 #      - sem-open-preload-launch
     command: overviewer.py
-    plugs:
-      - home
-      - removable-media
-      - mount-observe
-      - network-bind
-      - network
+#    plugs:
+#      - home
+#      - removable-media
+#      - mount-observe
+#      - network-bind
+#      - network
