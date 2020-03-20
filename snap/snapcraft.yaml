@@ -6,12 +6,12 @@ description: |
   Render high-resolution maps of a Minecraft world with a Leaflet powered interface.
 
 grade: stable
-confinement: strict
+confinement: classic # minecraft worlds can be anywhere
 
 parts:
-  sem-open-preload:
-    source: https://github.com/sergiusens/sem-open-preload.git
-    plugin: make
+#  sem-open-preload:
+#    source: https://github.com/sergiusens/sem-open-preload.git
+#    plugin: make
   overviewer:
     plugin: python
     python-packages:
@@ -31,8 +31,8 @@ parts:
 
 apps:
   overviewer:
-    command-chain:
-      - sem-open-preload-launch
+#    command-chain:
+#      - sem-open-preload-launch
     command: overviewer.py
     plugs:
       - home
