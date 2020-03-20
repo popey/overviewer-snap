@@ -1,0 +1,35 @@
+name: overviewer
+base: core18 # the base snap is the execution environment for this snap
+adopt-info: overviewer
+summary: Minecraft Overviewer
+description: |
+  Render high-resolution maps of a Minecraft world with a Leaflet powered interface.
+
+grade: stable
+confinement: strict
+
+parts:
+  overviewer:
+    plugin: python
+    python-packages:
+      - numpy
+    source: https://github.com/overviewer/Minecraft-Overviewer.git
+    source-tag: "v0.15.0"
+    build-packages:
+      - build-essential
+      - gcc
+      - python3-pillow
+      - python3-dev
+    stage-packages:
+      - python3-pil
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version "$(git rev-parse --short HEAD)"
+
+apps:
+  overviewer:
+    command: overviewer.py
+    plugs:
+      - home
+      - removable-media
+      - mount-observe
