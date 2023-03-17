@@ -17,7 +17,7 @@ parts:
     python-packages:
       - numpy
     source: https://github.com/overviewer/Minecraft-Overviewer.git
-    source-tag: "v0.15.0"
+    source-tag: "v0.17.0"
     build-packages:
       - build-essential
       - gcc
